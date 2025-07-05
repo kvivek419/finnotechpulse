@@ -1,0 +1,303 @@
+/* Custom CSS for Finnotech Pulse AI Tools Explorer */
+
+/* Root variables for theme */
+:root {
+    --primary-color: #d97706; /* Amber-700 for brand accent */
+    --secondary-color: #6c757d; /* Bootstrap secondary */
+    --background-light: #fdfcfb; /* Warm neutral light background */
+    --background-card: #ffffff;
+    --text-dark: #3f3c3a; /* Dark text for light mode */
+    --text-light: #e0e0e0; /* Light text for dark mode */
+    --border-light: #f0e9e4;
+    --card-hover-shadow: rgba(0, 0, 0, 0.07);
+    --card-hover-shadow-sm: rgba(0, 0, 0, 0.05);
+    --header-bg: #ffffff;
+    --footer-bg: #212529; /* Dark Bootstrap */
+    --modal-bg: #ffffff;
+    --modal-header-border: #dee2e6;
+
+    /* Specific accent colors for key takeaways */
+    --primary-subtle-bg: #fffbf5; /* Light amber */
+    --primary-subtle-border: #f0e9e4;
+    --primary-subtle-text: #d97706;
+
+    --info-subtle-bg: #e0f7fa; /* Light sky blue */
+    --info-subtle-border: #b2ebf2;
+    --info-subtle-text: #00bcd4;
+
+    --success-subtle-bg: #e8f5e9; /* Light green */
+    --success-subtle-border: #a5d6a7;
+    --success-subtle-text: #4caf50;
+}
+
+/* Dark Mode Variables - Enhanced for AI Theme */
+body.dark-mode {
+    --primary-color: #f59e0b; /* Brighter amber for dark mode contrast */
+    --secondary-color: #adb5bd;
+    --background-light: #121212; /* Very dark background for AI feel */
+    --background-card: #1e1e1e; /* Darker card background */
+    --text-dark: #e0e0e0; /* Light text for dark mode */
+    --text-light: #9a9a9a;
+    --border-light: #333333; /* Darker borders */
+    --card-hover-shadow: rgba(255, 255, 255, 0.07);
+    --card-hover-shadow-sm: rgba(255, 255, 255, 0.05);
+    --header-bg: #1e1e1e;
+    --footer-bg: #0a0a0a;
+    --modal-bg: #1e1e1e;
+    --modal-header-border: #333333;
+
+    /* Dark mode specific subtle accents - Adjusted for better contrast */
+    --primary-subtle-bg: #2a1f0a; /* Darker amber subtle */
+    --primary-subtle-border: #4a381d;
+    --primary-subtle-text: #f59e0b;
+
+    --info-subtle-bg: #1a2a3a; /* Darker blue subtle */
+    --info-subtle-border: #2d4a5c;
+    --info-subtle-text: #81d4fa;
+
+    --success-subtle-bg: #1a2a1a; /* Darker green subtle */
+    --success-subtle-border: #2d4a2d;
+    --success-subtle-text: #81c784;
+}
+
+/* Base Body Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: var(--header-bg) !important;
+    border-bottom: 1px solid var(--border-light);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar-brand {
+    color: var(--primary-color) !important;
+}
+
+.navbar-nav .nav-link {
+    color: var(--text-dark) !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e68a00 !important; /* Slightly darker amber */
+    border-color: #e68a00 !important;
+}
+
+.btn-outline-secondary {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--secondary-color);
+    color: var(--background-card);
+}
+
+/* Filter Buttons */
+.filter-btn {
+    background-color: var(--background-card);
+    border: 1px solid var(--border-light);
+    color: var(--text-dark);
+    transition: all 0.2s ease-in-out;
+    border-radius: 50rem !important; /* Pill shape */
+    padding: 0.5rem 1.25rem;
+    font-size: 0.9rem;
+}
+
+.filter-btn:hover {
+    background-color: var(--primary-subtle-bg);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: var(--background-card);
+    font-weight: 600;
+    border-color: var(--primary-color);
+}
+
+/* Card Styles (Tool Cards) */
+.card {
+    background-color: var(--background-card);
+    border: 1px solid var(--border-light);
+    border-radius: 0.75rem; /* Rounded corners */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px var(--card-hover-shadow), 0 4px 6px -2px var(--card-hover-shadow-sm);
+}
+
+.card-body {
+    color: var(--text-dark);
+}
+
+.card-text {
+    color: var(--secondary-color);
+}
+
+/* Key Takeaways Cards - Enhanced for Dark Mode */
+.card.border-primary-subtle {
+    background-color: var(--primary-subtle-bg) !important;
+    border-color: var(--primary-subtle-border) !important;
+}
+.card.border-primary-subtle .text-primary {
+    color: var(--primary-subtle-text) !important;
+}
+.card.border-info-subtle {
+    background-color: var(--info-subtle-bg) !important;
+    border-color: var(--info-subtle-border) !important;
+}
+.card.border-info-subtle .text-info {
+    color: var(--info-subtle-text) !important;
+}
+.card.border-success-subtle {
+    background-color: var(--success-subtle-bg) !important;
+    border-color: var(--success-subtle-border) !important;
+}
+.card.border-success-subtle .text-success {
+    color: var(--success-subtle-text) !important;
+}
+
+/* Chart Container Styling */
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Max width for readability */
+    margin-left: auto;
+    margin-right: auto;
+    height: 400px; /* Base height */
+    max-height: 50vh; /* Responsive max height */
+}
+
+@media (min-width: 768px) {
+    .chart-container {
+        height: 500px; /* Taller on larger screens */
+    }
+}
+
+/* Form Elements */
+.form-control, .form-select {
+    background-color: var(--background-card);
+    color: var(--text-dark);
+    border-color: var(--border-light);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: var(--background-card);
+    color: var(--text-dark);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(var(--primary-color-rgb), .25);
+}
+
+.form-label {
+    color: var(--text-dark);
+}
+
+/* Modal Styling */
+.modal-content {
+    background-color: var(--modal-bg);
+    color: var(--text-dark);
+    border-radius: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--modal-header-border);
+}
+
+.modal-title {
+    color: var(--primary-color);
+}
+
+.modal-body {
+    color: var(--text-dark);
+}
+
+.modal-footer {
+    border-top: 1px solid var(--modal-header-border);
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--footer-bg) !important;
+    transition: background-color 0.3s ease;
+}
+
+footer .text-white {
+    color: var(--text-light) !important;
+}
+
+footer .text-muted {
+    color: var(--secondary-color) !important;
+}
+
+.social-icons a {
+    color: var(--text-light);
+    transition: color 0.2s ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+}
+
+/* General Text Colors */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.text-secondary {
+    color: var(--secondary-color) !important;
+}
+
+/* List group for Latest News */
+.list-group-item {
+    background-color: var(--background-card) !important;
+    color: var(--text-dark) !important;
+    border-color: var(--border-light) !important;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.list-group-item:hover {
+    background-color: var(--primary-subtle-bg) !important;
+    color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* Google Ad Placeholder */
+.google-ad-placeholder {
+    background-color: var(--background-card);
+    border: 1px dashed var(--border-light);
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90px; /* Standard ad unit height */
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}

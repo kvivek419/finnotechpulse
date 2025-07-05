@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finnotech Pulse: AI Tools, Stocks & Latest News</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Chosen Palette: Warm Neutrals with Finnotech Pulse Accents (Enhanced for AI Theme) -->
+    <!-- Application Structure Plan: The redesigned SPA features a multi-section single-page layout, navigable via a top header. The core AI tool explorer remains prominent on the 'Home' section, using a filterable card grid and a dynamic Chart.js comparison. New dedicated sections for 'About Us', 'Stock & Paper Trade', 'Latest News', and 'Contact Us' provide essential company information, service details, and current updates, accessible through smooth scrolling. Dark mode support is enhanced for a consistent 'AI' theme across all elements. This structure provides a comprehensive, professional, and easily navigable platform for exploring AI tools, financial insights, and news from Finnotech Pulse. -->
+    <!-- Visualization & Content Choices:
+        - Tool Directory: Report Info -> List of tools & categories. Goal -> Organize/Inform. Viz -> Interactive card grid with direct links. Interaction -> Category filter buttons update the grid, card click opens modal, tool name/icon links to external site. Justification -> User-centric, allows quick access and external exploration. Library/Method -> Vanilla JS, Bootstrap 5.
+        - Tool Details: Report Info -> Capabilities, limits, pros/cons. Goal -> Inform. Viz -> Bootstrap Modal window. Interaction -> Click card to open. Justification -> Hides details until needed, maintaining a clean interface. Library/Method -> Vanilla JS, Bootstrap 5.
+        - Usage Limits Comparison: Report Info -> Numeric limits (words, images, credits). Goal -> Compare. Viz -> Bar Chart (Chart.js). Interaction -> Dropdown to switch data categories. Justification -> Makes abstract limitations concrete and comparable. Library/Method -> Chart.js on Canvas.
+        - Key Takeaways: Report Info -> Report's conclusion. Goal -> Summarize. Viz -> Thematic icon+text blocks. Interaction -> None. Justification -> Provides clear, final summary. Library/Method -> HTML, Bootstrap 5.
+        - About Us/Stock & Paper Trade/Latest News/Contact Us: Report Info -> Company details, service info, news, contact info. Goal -> Inform/Provide resources/Update. Viz -> Dedicated text sections. Interaction -> Navigation links scroll to sections. Justification -> Standard website components for professionalism and completeness, now including news. Library/Method -> HTML, Bootstrap 5.
+        - Dark Mode: Goal -> Enhance user experience and align with 'AI' theme. Viz -> Global theme toggle. Interaction -> Button click switches CSS variables. Justification -> Modern web standard, improves accessibility and aesthetics, especially for a tech-focused brand. Library/Method -> Vanilla JS, CSS.
+        - Google Ads: Goal -> Monetization placeholder. Viz -> Dedicated div. Interaction -> None. Justification -> Fulfills user request for potential ad integration across all sections. Library/Method -> HTML placeholder.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="bg-light text-dark">
+    <!-- Header/Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="#home-section">Finnotech Pulse</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home-section">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about-section">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#stock-trade-section">Stock & Paper Trade</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#latest-news-section">Latest News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact-section">Contact Us</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <button id="darkModeToggle" class="btn btn-outline-secondary rounded-pill btn-sm">
+                            <i class="fas fa-moon"></i> Dark Mode
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <!-- Home Section: AI Tools Explorer -->
+        <section id="home-section" class="mb-5 pt-4">
+            <header class="text-center mb-5">
+                <h1 class="display-4 fw-bold text-primary mb-3">Free AI Tools Explorer</h1>
+                <p class="lead text-secondary mx-auto" style="max-width: 800px;">
+                    An interactive guide to the capabilities and limitations of popular free AI tools. Discover what "free" really means in the world of AI, based on a comprehensive market analysis by Finnotech Pulse.
+                </p>
+            </header>
+
+            <!-- Google Ad Placeholder -->
+            <div class="text-center my-4 google-ad-placeholder">
+                Google Ad Placeholder (Top Banner)
+            </div>
+
+            <section id="tools-explorer" class="mb-5">
+                <h2 class="h3 fw-bold text-center mb-4">Discover AI Tools by Category</h2>
+                <div id="filters" class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+                    <!-- Filter buttons will be injected here by JS -->
+                </div>
+
+                <div id="tools-grid" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                    <!-- Tool cards will be injected here by JS -->
+                </div>
+            </section>
+
+            <section id="comparison-visual" class="mb-5">
+                <h2 class="h3 fw-bold text-center mb-3">Comparing the "Free" in Free AI</h2>
+                <p class="text-secondary text-center mx-auto mb-4" style="max-width: 700px;">
+                    Free tiers have limits. This chart visualizes the usage allowances for various tools, showing how much you can create before hitting a cap. Use the dropdown to compare tools across different categories.
+                </p>
+                <div class="d-flex justify-content-center mb-4">
+                    <select id="chart-filter" class="form-select w-auto shadow-sm">
+                        <option value="text">Text & Writing Limits</option>
+                        <option value="image">Image Generation Limits</option>
+                        <option value="audio">Audio & Music Limits</option>
+                        <option value="video">Video Editing Limits</option>
+                    </select>
+                </div>
+                <div class="bg-white p-4 rounded-3 shadow-sm border border-light">
+                    <div class="chart-container">
+                        <canvas id="limitsChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Google Ad Placeholder -->
+            <div class="text-center my-4 google-ad-placeholder">
+                Google Ad Placeholder (Mid-Content)
+            </div>
+
+            <section id="key-takeaways" class="mb-5">
+                <h2 class="h3 fw-bold text-center mb-4">Key Takeaways for Users</h2>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card h-100 p-4 border-primary-subtle bg-primary-subtle">
+                            <div class="card-body text-center">
+                                <div class="fs-2 mb-3">⚖️</div>
+                                <h3 class="h5 fw-semibold text-primary mb-2">The "Free" Trade-Off</h3>
+                                <p class="card-text text-secondary">Free tools are powerful but rarely unlimited. Providers use caps on words, credits, or features to manage costs and encourage upgrades. Plan for these limits in your workflow.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 p-4 border-info-subtle bg-info-subtle">
+                            <div class="card-body text-center">
+                                <div class="fs-2 mb-3">🔒</div>
+                                <h3 class="h5 fw-semibold text-info mb-2">Data Privacy & Ownership</h3>
+                                <p class="card-text text-secondary">Review the terms of service. Some free tools may use your data for training or retain ownership of generated content, which can impact commercial use.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 p-4 border-success-subtle bg-success-subtle">
+                            <div class="card-body text-center">
+                                <div class="fs-2 mb-3">🚀</div>
+                                <h3 class="h5 fw-semibold text-success mb-2">A Gateway to Innovation</h3>
+                                <p class="card-text text-secondary">Despite limits, these tools are excellent for experimentation, learning, and small-scale projects. They democratize access to cutting-edge technology for everyone.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about-section" class="mb-5 py-5 border-top border-bottom">
+            <h2 class="display-5 fw-bold text-center text-primary mb-4">About Finnotech Pulse</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <p class="lead text-secondary text-center mb-4">
+                        At Finnotech Pulse, we are dedicated to demystifying the world of artificial intelligence and making its power accessible to everyone. Our mission is to provide clear, actionable insights into emerging technologies, helping individuals and businesses navigate the digital frontier with confidence.
+                    </p>
+                    <p class="text-secondary">
+                        Founded on the principles of innovation, transparency, and user empowerment, Finnotech Pulse serves as your trusted guide in the rapidly evolving AI landscape. We believe that understanding the capabilities and limitations of AI tools is crucial for informed decision-making and fostering responsible technological adoption. Through comprehensive analysis and user-friendly interfaces, we strive to equip our community with the knowledge needed to leverage AI effectively for creativity, productivity, and growth.
+                    </p>
+                    <p class="text-secondary">
+                        Our team comprises expert data analysts, UI/UX designers, and information architects, all committed to transforming complex data into consumable, interactive experiences. We are constantly researching and updating our resources to ensure you have the most current and relevant information at your fingertips. Join us on this journey to explore the pulse of innovation in AI, Stocks, and the Latest News.
+                    </p>
+                </div>
+            </div>
+            <!-- Google Ad Placeholder -->
+            <div class="text-center my-4 google-ad-placeholder">
+                Google Ad Placeholder (About Us)
+            </div>
+        </section>
+
+        <!-- Stock & Paper Trade Section -->
+        <section id="stock-trade-section" class="mb-5 py-5 border-top border-bottom">
+            <h2 class="display-5 fw-bold text-center text-primary mb-4">Explore Stock & Paper Trading</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <p class="lead text-secondary text-center mb-4">
+                        Beyond AI tools, Finnotech Pulse also offers insights and resources for navigating the world of financial markets, including stock trading and paper trading.
+                    </p>
+                    <h3 class="h4 fw-bold text-primary mb-3">What is Paper Trading?</h3>
+                    <p class="text-secondary">
+                        Paper trading, also known as virtual trading or simulated trading, allows you to practice buying and selling stocks, options, or other financial instruments without using real money. It's an invaluable tool for beginners to learn the ropes of the market, test trading strategies, and understand market dynamics in a risk-free environment. Finnotech Pulse encourages responsible learning and offers resources to help you get started with paper trading platforms.
+                    </p>
+                    <h3 class="h4 fw-bold text-primary mb-3">Real Stock Trading Insights</h3>
+                    <p class="text-secondary">
+                        For those ready to delve into real stock trading, Finnotech Pulse provides analytical tools and market insights to help you make informed decisions. We focus on leveraging data and AI-driven analysis to identify trends, evaluate investment opportunities, and understand market risks. Our goal is to empower traders with knowledge, helping them to develop robust strategies and navigate the complexities of the stock market effectively.
+                    </p>
+                    <p class="text-secondary">
+                        Stay tuned for our upcoming features that integrate AI-powered market analysis directly into your trading insights, bringing the power of artificial intelligence to your financial decisions.
+                    </p>
+                </div>
+            </div>
+            <!-- Google Ad Placeholder -->
+            <div class="text-center my-4 google-ad-placeholder">
+                Google Ad Placeholder (Stock & Paper Trade)
+            </div>
+        </section>
+
+        <!-- Latest News Section -->
+        <section id="latest-news-section" class="mb-5 py-5 border-top border-bottom">
+            <h2 class="display-5 fw-bold text-center text-primary mb-4">Latest News from Finnotech Pulse</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <p class="lead text-secondary text-center mb-4">
+                        Stay up-to-date with the most significant developments in AI, technology, and financial markets.
+                    </p>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action bg-white text-dark border-light mb-2 rounded-3 shadow-sm">
+                            <h5 class="mb-1 text-primary fw-semibold">AI Breakthrough: New Model Achieves Human-Level Reasoning</h5>
+                            <p class="mb-1 text-secondary">Researchers unveil a groundbreaking AI model demonstrating unprecedented reasoning capabilities in complex problem-solving scenarios.</p>
+                            <small class="text-muted">July 5, 2025</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action bg-white text-dark border-light mb-2 rounded-3 shadow-sm">
+                            <h5 class="mb-1 text-primary fw-semibold">Tech Giants Announce Q2 Earnings: AI Investments Drive Growth</h5>
+                            <p class="mb-1 text-secondary">Leading tech companies report strong quarterly results, with significant revenue increases attributed to strategic investments in artificial intelligence.</p>
+                            <small class="text-muted">July 4, 2025</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action bg-white text-dark border-light mb-2 rounded-3 shadow-sm">
+                            <h5 class="mb-1 text-primary fw-semibold">Global Markets React to Central Bank Policy Shifts</h5>
+                            <p class="mb-1 text-secondary">Analysts provide insights into how recent central bank decisions are impacting global stock markets and investor sentiment.</p>
+                            <small class="text-muted">July 3, 2025</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action bg-white text-dark border-light mb-2 rounded-3 shadow-sm">
+                            <h5 class="mb-1 text-primary fw-semibold">The Rise of AI in Personalized Finance: What You Need to Know</h5>
+                            <p class="mb-1 text-secondary">Discover how AI is revolutionizing personal finance, from automated investing to intelligent budgeting tools.</p>
+                            <small class="text-muted">July 2, 2025</small>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Google Ad Placeholder -->
+            <div class="text-center my-4 google-ad-placeholder">
+                Google Ad Placeholder (Latest News)
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact-section" class="mb-5 py-5 border-top">
+            <h2 class="display-5 fw-bold text-center text-primary mb-4">Get in Touch with Finnotech Pulse</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-7">
+                    <p class="text-secondary text-center mb-4">
+                        We're here to help and eager to connect. Feel free to reach out to us using the contact information below.
+                    </p>
+                    <div class="card p-4 shadow-sm border-light bg-white text-center">
+                        <div class="mb-3">
+                            <h4 class="h6 fw-bold text-primary">Phone:</h4>
+                            <p class="text-secondary mb-0">+1 (123) 456-7890</p>
+                        </div>
+                        <div class="mb-3">
+                            <h4 class="h6 fw-bold text-primary">Email:</h4>
+                            <p class="text-secondary mb-0"><a href="mailto:info@finnotechpulse.com" class="text-decoration-none text-secondary">info@finnotechpulse.com</a></p>
+                        </div>
+                        <div>
+                            <h4 class="h6 fw-bold text-primary">Address:</h4>
+                            <p class="text-secondary mb-0">123 AI Innovation Drive,</p>
+                            <p class="text-secondary mb-0">Tech City, CA 90210</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <!-- Google Ad Placeholder -->
+            <div class="text-center my-4 google-ad-placeholder">
+                Google Ad Placeholder (Contact Us)
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-2">&copy; 2025 Finnotech Pulse. All rights reserved.</p>
+            <div class="social-icons mb-3">
+                <a href="https://www.instagram.com/finnotechpulse" target="_blank" class="text-white mx-2"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="https://www.youtube.com/finnotechpulse" target="_blank" class="text-white mx-2"><i class="fab fa-youtube fa-lg"></i></a>
+                <a href="https://www.facebook.com/finnotechpulse" target="_blank" class="text-white mx-2"><i class="fab fa-facebook-f fa-lg"></i></a>
+                <a href="https://www.threads.net/@finnotechpulse" target="_blank" class="text-white mx-2"><i class="fab fa-threads fa-lg"></i></a>
+            </div>
+            <p class="text-muted small">Empowering your journey through the world of AI.</p>
+        </div>
+    </footer>
+
+    <!-- Tool Detail Modal -->
+    <div class="modal fade" id="toolDetailModal" tabindex="-1" aria-labelledby="toolDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="toolDetailModalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="modal-content-body"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a id="toolLink" href="#" target="_blank" class="btn btn-primary">Go to Tool <i class="fas fa-external-link-alt ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
